@@ -4,12 +4,26 @@
     "es6": true,
     "jest": true
   },
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "rules": {
-    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"]
+    "no-plusplus": "off",
+    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+          ["+", "*", "/", "%"],
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"],
+          ["in", "instanceof"]
+        ],
+        "allowSamePrecedence": true
+      }
+    ]
   }
 }
